@@ -123,7 +123,7 @@ function(cxxopts_install_logic)
     # Install version, config and target files.
     install(
         FILES ${project_config} ${version_config}
-        DESTINATION ${CXXOPTS_CMAKE_DIR})
+        DESTINATION ${CMAKE_INSTALL_LIBDIR})
     install(EXPORT ${targets_export_name} DESTINATION ${CXXOPTS_CMAKE_DIR}
         NAMESPACE cxxopts::)
 
@@ -162,7 +162,7 @@ function(cxxopts_install_logic)
     endif()
     configure_file("${PackagingTemplatesDir}/pkgconfig.pc.in" "${PKG_CONFIG_FILE_NAME}" @ONLY)
     install(FILES "${PKG_CONFIG_FILE_NAME}"
-            DESTINATION "${CMAKE_INSTALL_LIBDIR_ARCHIND}/pkgconfig"
+            DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
     )
 
     include(CPack)
